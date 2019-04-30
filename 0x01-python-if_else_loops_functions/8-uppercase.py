@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def uppercase(str):
-    if str == '':
+    if str == "":
         return(ord(str))
     x = 0
     while x < len(str):
