@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_node - insert a new node in the position given
  * @head: elements to print
@@ -7,7 +6,6 @@
  *
  * Return: The numbers of nodes
  */
-
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new_node, *current_node, *idx;
@@ -17,22 +15,16 @@ listint_t *insert_node(listint_t **head, int number)
 		idx = idx->next;
 	new_node = malloc(sizeof(listint_t));
 	if (new_node == NULL)
-	{
-		free(new_node);
-		return (0);
-	}
+		return (NULL);
 	new_node->n = number;
-
 	if (idx == NULL)
 		return (new_node);
-
 	if (idx == 0)
 	{
 		new_node->next = idx;
 		idx = new_node;
 		return (new_node);
 	}
-
 	current_node = idx;
 	while (number < idx->n)
 	{
