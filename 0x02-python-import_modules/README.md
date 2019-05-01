@@ -1,8 +1,8 @@
-#0x02 Proyect from Holberton School
+# 0x02 Proyect from Holberton School
 
-###Python import modules
+### Python import modules
 
-####Definition
+#### Definition
 
 Module is a file contaiining Python definitions and statements. The file name is
 the module name with the suffic .py appended. Also, it is available as the value
@@ -12,12 +12,12 @@ At the other hand, a module can contain executables statements as well as functi
 on definitions. They are executed only the first time the module name is encount
 tered in an import statement.
 
-####Task
+#### Task
 
 In the current project you could find the next functions:
 
   number  |  Task  |  Function
-__________|________|__________
+----------|--------|----------
   0  |  Import a simple function from a simple file  |  Program that imports the function def add(a, b):
   1  |  My first toolbox!  |  Program that imports functions from the file calculator_1.py
   2  |  How to make a script dynamic!  |  Program that prints the number of and the list of its arguments.
