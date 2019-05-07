@@ -4,6 +4,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     b = tup_condition(tuple_b)
     return (a[0] + b[0], a[1] + b[1])
 
+
 def tup_condition(tup=()):
     l = len(tup)
     if l == 0:
