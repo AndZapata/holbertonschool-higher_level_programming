@@ -20,6 +20,7 @@ int is_palindrome(listint_t **head)
 		array[i] = aux->n;
 		aux = aux->next;
 	}
+	i--;
 	for (j = 0; j < i; j++, i--)
 	{
 		if (array[i] != array[j])
