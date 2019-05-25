@@ -16,22 +16,18 @@ Strings
     >>> text_indentation = __import__('5-text_indentation').text_indentation
     >>> text_indentation("Holberton.")
     Holberton.
-    <BLANKLINE>
     >>> text_indentation('A')
     A
     >>> text_indentation('?')
     ?
-    <BLANKLINE>
 
-    >>> text_indentation(' : ')
+    >>> text_indentation(':')
     :
-    <BLANKLINE>
 
-    >>> text_indentation('    .    ')
+    >>> text_indentation('.')
     .
-    <BLANKLINE>
 
-    >>> text_indentation('    .?::?.    ')
+    >>> text_indentation('.?::?.')
     .
     <BLANKLINE>
     ?
@@ -43,7 +39,6 @@ Strings
     ?
     <BLANKLINE>
     .
-    <BLANKLINE>
 
 Numbers
 ===========
