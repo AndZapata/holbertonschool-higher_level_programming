@@ -6,7 +6,7 @@
 This library is very simple, since it only has one function called
 ``text_indentation()``.
 
-Numbers
+Strings
 =======
 
 ``text_indentation()``
@@ -15,22 +15,37 @@ Numbers
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
     >>> text_indentation("Holberton.")
-    5
-    >>> text_indentation(-3, 10)
-    7
-    >>> text_indentation(40, -5)
-    35
-    >>> text_indentation(-40, -5)
-    -45
+    Holberton.
+    <BLANKLINE>
+    >>> text_indentation('A')
+    A
+    >>> text_indentation('?')
+    ?
+    <BLANKLINE>
 
-It also works with floating-point values.
+    >>> text_indentation(' : ')
+    :
+    <BLANKLINE>
 
-::
+    >>> text_indentation('    .    ')
+    .
+    <BLANKLINE>
 
-    >>> text_indentation(2.0, 3)
-    5
+    >>> text_indentation('    .?::?.    ')
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
 
-Non-Numbers
+Numbers
 ===========
 
 Raise error message in cases that one of the variables are not integers or
@@ -38,18 +53,6 @@ floats
 
 ::
 
-    >>> text_indentation('a', 3)
+    >>> text_indentation(567)
     Traceback (most recent call last):
-    TypeError: a must be an integer
-
-    >>> text_indentation("Holberton", 2)
-    Traceback (most recent call last):
-    TypeError: a must be an integer
-
-    >>> text_indentation(9, "School")
-    Traceback (most recent call last):
-    TypeError: b must be an integer
-
-    >>> text_indentation(100, 'G')
-    Traceback (most recent call last):
-    TypeError: b must be an integer
+    TypeError: text must be a string
