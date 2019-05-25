@@ -16,16 +16,20 @@ Strings
     >>> text_indentation = __import__('5-text_indentation').text_indentation
     >>> text_indentation("Holberton.")
     Holberton.
+    <BLANKLINE>
     >>> text_indentation('A')
     A
     >>> text_indentation('?')
     ?
+    <BLANKLINE>
 
     >>> text_indentation(':')
     :
+    <BLANKLINE>
 
     >>> text_indentation('.')
     .
+    <BLANKLINE>
 
     >>> text_indentation('.?::?.')
     .
@@ -39,12 +43,12 @@ Strings
     ?
     <BLANKLINE>
     .
+    <BLANKLINE>
 
 Numbers
 ===========
 
-Raise error message in cases that one of the variables are not integers or
-floats
+Raise error message in differents type cases
 
 ::
 
