@@ -54,3 +54,22 @@ floats
     >>> add_integer(100, 'G')
     Traceback (most recent call last):
     TypeError: b must be an integer
+
+    >>> add_integer(float(2**1023), float(2**1023))
+    Traceback (most recent call last):
+    OverflowError: overflow error
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer('Freddie', 'Mercuri')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(4)
+    102

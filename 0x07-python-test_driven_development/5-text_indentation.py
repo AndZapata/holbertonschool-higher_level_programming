@@ -3,9 +3,6 @@
 
 
 def text_indentation(text):
-    lst = []
-    list2 = []
-    limiters = ".?:"
     """
     Check the type of the text if it is a string,
     if not: raise an error message
@@ -16,14 +13,7 @@ def text_indentation(text):
     if type(text) != str:
         raise TypeError('text must be a string')
     else:
-        new_text = text.replace('.', ".\n\n")
-        new_text = new_text.replace(':', ":\n\n")
-        new_text = new_text.replace('?', "?\n\n")
-        new_text = new_text.strip()
-        lst = new_text.split('\n')
-        for i in lst:
-            list2.append(i.strip())
-        parcial = '\n'.join(list2)
-        print('\n'.join(list2))
-        if len(parcial) > 0 and parcial[-1] in limiters:
-            print("")
+        text = text.replace('.', ".\n\n")
+        text = text.replace(':', ":\n\n")
+        text = text.replace('?', "?\n\n")
+        print('\n'.join(i.strip() for i in text.split('\n')), end='')
