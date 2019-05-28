@@ -48,12 +48,12 @@ class Rectangle:
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ''
-        list1 = []
+        list3 = []
         for i in range(self.height):
-            list1.append("{}".format(self.print_symbol * self.width))
+            list3.append("{}".format(self.print_symbol) * self.width)
             if i < (self.height - 1):
                 list1.append('\n')
-        return ''.join(list1)
+        return ''.join(list3)
 
     def __repr__(self):
         return 'Rectangle({:d}, {:d})'.format(self.width, self.height)
