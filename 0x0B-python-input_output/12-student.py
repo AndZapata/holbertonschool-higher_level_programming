@@ -6,7 +6,7 @@ class Student():
         self.age = age
 
     def to_json(self, attrs=None):
-        if attrs != None:
+        if attrs is not None:
             dict1 = {}
             for key, val in self.__dict__.items():
                 for key2 in attrs:
