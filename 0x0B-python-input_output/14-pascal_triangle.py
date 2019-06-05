@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
-    list1 = [[1], [1,1]]
+    if n <= 0:
+        return []
+    list1 = [[1], [1, 1]]
     for i in range(1, n - 1):
         line = [1]
         for j in range(0, len(list1[i]) - 1):
