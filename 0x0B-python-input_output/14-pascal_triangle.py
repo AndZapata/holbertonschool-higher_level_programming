@@ -2,6 +2,8 @@
 def pascal_triangle(n):
     if n <= 0:
         return []
+    elif n == 1:
+        return [[1]]
     list1 = [[1], [1, 1]]
     for i in range(1, n - 1):
         line = [1]
