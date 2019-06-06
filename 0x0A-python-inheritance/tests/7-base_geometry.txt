@@ -1,6 +1,6 @@
-# 1-my_list.txt
+# 7-base_geometry.txt
 ===============================
- How to Use 1-my_list.py
+ How to Use 7-base_geometry.py
 ===============================
 
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -41,3 +41,19 @@
     >>> bg.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+    >>> bg.integer_validator('age', 'True')
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator('age', (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator('age', None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
