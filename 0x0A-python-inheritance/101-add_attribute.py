@@ -3,7 +3,7 @@
 
 def add_attribute(obj, name, value):
     if isinstance(obj, (int, bool, float, str, complex, list, tuple, dict,
-                        frozenset, set)):
+                        frozenset, set, bytes)):
         raise TypeError('can\'t add new attribute')
     else:
-        setattr(obj, name, value)
+        obj.__setattr__(name, value)
