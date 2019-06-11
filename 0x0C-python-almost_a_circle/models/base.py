@@ -1,12 +1,15 @@
 #!/usr/bin/python3
+""" Module base.py """
 import json
 import csv
 
 
 class Base():
+    """ New class base """
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ initialization """
         if id is not None:
             self.id = id
         else:
@@ -15,12 +18,14 @@ class Base():
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ Function to pass from python to json string """
         if list_dictionaries is None or list_dictionaries == "":
             return []
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ Function to save into a file .json """
         list_ob2 = []
         if list_objs is not None:
             for i in list_objs:
@@ -30,12 +35,14 @@ class Base():
 
     @staticmethod
     def from_json_string(json_string):
+        """ Function to pass from json string to pyhton """
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """ Function to create a temporal dummy """
         if cls.__name__ == 'Rectangle':
             panda_dummy = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -45,6 +52,7 @@ class Base():
 
     @classmethod
     def load_from_file(cls):
+        """ Function to pass from json file to python """
         list_obj2 = []
         try:
             with open('{}.json'.format(cls.__name__), 'r') as File:
@@ -57,6 +65,7 @@ class Base():
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """ Function to save into a csv file """
         for a in list_objs:
             dict_1 = a.to_dictionary()
         with open(cls.__name__ + ".csv", 'w') as mycsv:
@@ -68,6 +77,7 @@ class Base():
 
     @classmethod
     def load_from_file_csv(cls):
+        """ function to read a csv file """
         list_ob_csv = []
         with open(cls.__name__ + ".csv", 'r') as mycsv:
             dictr = csv.DictReader(mycsv)
