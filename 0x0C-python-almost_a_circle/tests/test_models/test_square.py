@@ -18,81 +18,49 @@ class TestCodeFormat(unittest.TestCase):
 class TestSquareWorking(unittest.TestCase):
     """ class test rectangle """
 
+    def setUp(self):
+        """ setUp """
+        self.s1 = Square(10)
+        self.s2 = Square(2)
+        self.s3 = Square(2, 1, 3, 12)
+
+    def tearDown(self):
+        """ TearDown """
+        pass
+
     def test_squ_normal(self):
         """ Normal cases """
-        s1 = Square(10, 0, 0, 1)
-        self.assertEqual(s1.id, 1)
-        s2 = Square(2, 0, 0, 2)
-        self.assertEqual(s2.id, 2)
-        s3 = Square(2, 0, 0, 12)
-        self.assertEqual(s3.id, 12)
-        s4 = Square(4, 5, 6, 7)
-        self.assertEqual(s4.size, 4)
-        s5 = Square(2, 3, 4, 8)
-        self.assertEqual(s5.size, 2)
-        self.assertEqual(s5.x, 3)
-        self.assertEqual(s5.y, 4)
-        self.assertEqual(s5.id, 8)
-
-    def test_arg_one(self):
-        """ one argument case """
-        s6 = Square(1)
-        self.assertEqual(s6.size, 1)
+        self.assertEqual(self.s1.id, 61)
+        self.assertEqual(self.s2.id, 62)
+        self.assertEqual(self.s3.id, 12)
+        self.assertEqual(self.s1.size, 10)
+        self.assertEqual(self.s2.size, 2)
+        self.assertEqual(self.s3.size, 2)
+        self.assertEqual(self.s1.x, 0)
+        self.assertEqual(self.s2.x, 0)
+        self.assertEqual(self.s3.x, 1)
+        self.assertEqual(self.s1.y, 0)
+        self.assertEqual(self.s2.y, 0)
+        self.assertEqual(self.s3.y, 3)
 
     def test_size_zero(self):
         """ 0 width argument case """
         with self.assertRaises(ValueError):
-            s7 = Square(0)
+            self.s1.size = 0
 
     def test_no_args(self):
         """No arguments cases """
         with self.assertRaises(TypeError):
-            s8 = Square()
-
-    def test_x_neg(self):
-        """ Negative x """
-        with self.assertRaises(ValueError):
-            s9 = Square(1, 2, -1, 8)
-
-    def test_y_neg(self):
-        """ Negative y """
-        with self.assertRaises(ValueError):
-            s10 = Square(1, -2, 1, 1)
-
-    def test_width_wr_type(self):
-        """ String width """
-        with self.assertRaises(TypeError):
-            s11 = Square('A', 1, -1)
-
-    def test_height_wr_type(self):
-        """ String height """
-        with self.assertRaises(TypeError):
-            s12 = Square(1, 'H', 1, 0)
-
-    def test_x_wr_type(self):
-        """ String x """
-        with self.assertRaises(TypeError):
-            s13 = Square(1, 2, 'A', 0)
-
-    def test_y_wr_type(self):
-        """ String y """
-        with self.assertRaises(TypeError):
-            s14 = Square(1, 'h', 1, 0)
-
-    def test_float_Rec(self):
-        """ float numbers """
-        with self.assertRaises(TypeError):
-            s15 = Square(2.5, 3, 4, 5, 9)
+            self.s1.size = 'H'
 
     def test_area_Rec_nor(self):
         """ Test Area """
-        s16 = Square(3)
-        self.assertEqual(s16.area(), 9)
-        s17 = Square(2)
-        self.assertEqual(s17.area(), 4)
-        s18 = Square(8)
-        self.assertEqual(s18.area(), 64)
-
+        self.s1.size = 3
+        self.assertEqual(self.s1.area(), 9)
+        self.s1.size = 2
+        self.assertEqual(self.s1.area(), 4)
+        self.s1.size = 8
+        self.assertEqual(self.s1.area(), 64)
 
 
 if __name__ == '__main__':
