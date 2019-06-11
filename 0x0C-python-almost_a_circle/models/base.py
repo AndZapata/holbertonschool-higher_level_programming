@@ -19,8 +19,8 @@ class Base():
     @staticmethod
     def to_json_string(list_dictionaries):
         """ Function to pass from python to json string """
-        if list_dictionaries is None or list_dictionaries == "":
-            return []
+        if not list_dictionaries or list_dictionaries == "":
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
