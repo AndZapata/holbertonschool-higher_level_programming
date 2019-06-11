@@ -25,7 +25,6 @@ class Base():
         if list_objs is not None:
             for i in list_objs:
                 list_ob2.append(i.to_dictionary())
-
         with open('{}.json'.format(cls.__name__), 'w') as File:
             File.write(cls.to_json_string(list_ob2))
 
@@ -59,21 +58,21 @@ class Base():
     @classmethod
     def save_to_file_csv(cls, list_objs):
         for a in list_objs:
-            dict_1 = http://a.to _dictionary()
+            dict_1 = a.to_dictionary()
         with open(cls.__name__ + ".csv", 'w') as mycsv:
             keys = dict_1.keys()
-            pepito = csv.DictWriter(mycsv, keys)
-            pepito.writeheader()
-            pepito.writerow(dict_1)
+            dictw = csv.DictWriter(mycsv, keys)
+            dictw.writeheader()
+            for a in list_objs:
+                dictw.writerow(a.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
-        juanitolist = []
-
-        with open(cls.__name__ + ".csv", newline='') as mycsv:
-            var = csv.DictReader(mycsv)
-            for row in var:
+        list_ob_csv = []
+        with open(cls.__name__ + ".csv", 'r') as mycsv:
+            dictr = csv.DictReader(mycsv)
+            for row in dictr:
                 for key, value in row.items():
                     row[key] = int(value)
-                juanitolist.append(row)
-        return [cls.create(**a) for a in juanitolist]
+                list_ob_csv.append(cls.create(**row))
+        return list_ob_csv
