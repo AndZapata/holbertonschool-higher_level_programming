@@ -51,3 +51,7 @@ class TestBaseWorking(unittest.TestCase):
     def test_base_dir(self):
         b9 = Base({'A': 1, 'B': 2})
         self.assertEqual(b9.id, {'A': 1, 'B': 2})
+
+
+if __name__ == '__main__':
+    unittest.main()
