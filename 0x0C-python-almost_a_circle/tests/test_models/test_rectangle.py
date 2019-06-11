@@ -17,86 +17,92 @@ class TestCodeFormat(unittest.TestCase):
 class TestRectangleWorking(unittest.TestCase):
     """ class test rectangle """
 
-    def test_rec_normal(self):
+    def setUp(self):
+        """ setUp """
+        self.r1 = Rectangle(10, 2)
+        self.r2 = Rectangle(2, 10)
+        self.r3 = Rectangle(10, 2, 0, 0, 12)
+
+    def tearDown(self):
+        """ TearDown """
+        pass
+
+    def test_rec_id(self):
         """ Normal cases """
-        r1 = Rectangle(10, 2, 0, 0, 1)
-        self.assertEqual(r1.id, 1)
-        r2 = Rectangle(2, 10, 0, 0, 2)
-        self.assertEqual(r2.id, 2)
-        r3 = Rectangle(10, 2, 0, 0, 12)
-        self.assertEqual(r3.id, 12)
-        r4 = Rectangle(3, 4, 5, 6, 7)
-        self.assertEqual(r4.height, 4)
-        r5 = Rectangle(1, 2, 3, 4, 8)
-        self.assertEqual(r5.width, 1)
-        self.assertEqual(r5.x, 3)
-        self.assertEqual(r5.y, 4)
-        self.assertEqual(r5.id, 8)
+        self.assertEqual(self.r1.id, 43)
+        self.assertEqual(self.r2.id, 44)
+        self.assertEqual(self.r3.id, 12)
 
-    def test_arg_one(self):
-        """ one argument case """
+    def test_rec_width(self):
+        """ width cases """
+        self.assertEqual(self.r1.width, 10)
+        self.assertEqual(self.r2.width, 2)
+        self.assertEqual(self.r3.width, 10)
+
+    def test_rec_height(self):
+        """ Height cases """
+        self.assertEqual(self.r1.height, 2)
+        self.assertEqual(self.r2.height, 10)
+        self.assertEqual(self.r3.height, 2)
+
+    def test_rec_x(self):
+        """ x cases """
+        self.assertEqual(self.r1.x, 0)
+        self.assertEqual(self.r2.x, 0)
+        self.assertEqual(self.r3.x, 0)
+
+    def test_rec_y(self):
+        """ y cases """
+        self.assertEqual(self.r1.y, 0)
+        self.assertEqual(self.r2.y, 0)
+        self.assertEqual(self.r3.y, 0)
+
+    def test_update(self):
+        self.r2.update(89)
+        self.assertEqual(self.r2.id, 89)
+        self.r2.update(89, 2)
+        self.assertEqual(self.r2.width, 2)
+        self.r2.update(89, 2, 3)
+        self.assertEqual(self.r2.height, 3)
+        self.r2.update(89, 2, 3, 4)
+        self.assertEqual(self.r2.x, 4)
+        self.r2.update(89, 2, 3, 4, 5)
+        self.assertEqual(self.r2.y, 5)
+
+    def test_update_2(self):
+        self.r2.update(height=1)
+        self.assertEqual(self.r2.height, 1)
+        self.r2.update(width=1, x=2)
+        self.assertEqual(self.r2.width, 1)
+        self.assertEqual(self.r2.x, 2)
+        self.r2.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(self.r2.y, 1)
+        self.assertEqual(self.r2.width, 2)
+        self.assertEqual(self.r2.x, 3)
+        self.assertEqual(self.r2.id, 89)
+        self.r2.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(self.r2.x, 1)
+        self.assertEqual(self.r2.height, 2)
+        self.assertEqual(self.r2.y, 3)
+        self.assertEqual(self.r2.width, 4)
+
+    def test_faults(self):
         with self.assertRaises(TypeError):
-            r6 = Rectangle(1)
+            self.r1.width = 'Hello'
+            self.r2.width = ''
+            self.r3.width = 2.5
+            self.r1.height = 'Hello'
+            self.r2.height = ''
+            self.r3.height = 'A'
 
-    def test_width_zero(self):
-        """ 0 width argument case """
+    def test_fail_value(self):
         with self.assertRaises(ValueError):
-            r7 = Rectangle(0, 1)
-
-    def test_height_zero(self):
-        """ 0 height argument case """
-        with self.assertRaises(ValueError):
-            r8 = Rectangle(1, 0)
-
-    def test_no_args(self):
-        """No arguments cases """
-        with self.assertRaises(TypeError):
-            r9 = Rectangle()
-
-    def test_x_neg(self):
-        """ Negative x """
-        with self.assertRaises(ValueError):
-            r10 = Rectangle(1, 2, -1, 2)
-
-    def test_y_neg(self):
-        """ Negative y """
-        with self.assertRaises(ValueError):
-            r11 = Rectangle(1, 2, 1, -1)
-
-    def test_width_wr_type(self):
-        """ String width """
-        with self.assertRaises(TypeError):
-            r12 = Rectangle('A', 2, 1, -1)
-
-    def test_height_wr_type(self):
-        """ String height """
-        with self.assertRaises(TypeError):
-            r13 = Rectangle(1, 'H', 1, 0)
-
-    def test_x_wr_type(self):
-        """ String x """
-        with self.assertRaises(TypeError):
-            r14 = Rectangle(1, 2, 'A', 0)
-
-    def test_y_wr_type(self):
-        """ String y """
-        with self.assertRaises(TypeError):
-            r15 = Rectangle(1, 2, 1, 'H')
-
-    def test_float_Rec(self):
-        """ float numbers """
-        with self.assertRaises(TypeError):
-            r16 = Rectangle(2.5, 3, 4, 5, 9)
-
-    def test_area_Rec_nor(self):
-        """ Test Area """
-        r17 = Rectangle(3, 2)
-        self.assertEqual(r17.area(), 6)
-        r18 = Rectangle(2, 10)
-        self.assertEqual(r18.area(), 20)
-        r19 = Rectangle(8, 7, 0, 0, 12)
-        self.assertEqual(r19.area(), 56)
-
+            self.r1.width = -1
+            self.r2.width = -2
+            self.r3.width = -3
+            self.r1.height = -4
+            self.r2.height = -5
+            self.r3.height = -6
 
 
 if __name__ == '__main__':
