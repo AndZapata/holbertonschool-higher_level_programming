@@ -16,53 +16,60 @@ class TestCodeFormat(unittest.TestCase):
 class TestBaseWorking(unittest.TestCase):
     """ Class test for base """
 
+    def setUp(self):
+        """ setUp """
+        self.b1 = Base()
+        self.b2 = Base()
+        self.b3 = Base()
+        self.b4 = Base(12)
+        self.b5 = Base()
+
+    def tearDown(self):
+        """ TearDown"""
+        pass
+
     def test_base_normal(self):
         """ normal cases test """
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
-        b3 = Base()
-        self.assertEqual(b3.id, 3)
-        b4 = Base(12)
-        self.assertEqual(b4.id, 12)
-        b5 = Base()
-        self.assertEqual(b5.id, 4)
+        self.assertEqual(self.b1.id, 21)
+        self.assertEqual(self.b2.id, 22)
+        self.assertEqual(self.b3.id, 23)
+        self.assertEqual(self.b4.id, 12)
+        self.assertEqual(self.b5.id, 24)
 
     def test_base_zero(self):
         """ zero case """
-        b6 = Base(0)
-        self.assertEqual(b6.id, 0)
+        self.b1 = Base(0)
+        self.assertEqual(self.b1.id, 0)
 
     def test_base_neg(self):
         """ negative case """
-        b7 = Base(-4)
-        self.assertEqual(b7.id, -4)
+        self.b1 = Base(-4)
+        self.assertEqual(self.b1.id, -4)
 
     def test_base_neg_float(self):
         """ negative floating case """
-        b9 = Base(-3.4)
-        self.assertEqual(b9.id, -3.4)
+        self.b1 = Base(-3.4)
+        self.assertEqual(self.b1.id, -3.4)
 
     def test_base_str(self):
         """ String case """
-        b8 = Base('Hello')
-        self.assertEqual(b8.id, 'Hello')
+        self.b1 = Base('Hello')
+        self.assertEqual(self.b1.id, 'Hello')
 
     def test_base_list(self):
         """ List case """
-        b9 = Base([1, 2, 3, 4])
-        self.assertEqual(b9.id, [1, 2, 3, 4])
+        self.b1 = Base([1, 2, 3, 4])
+        self.assertEqual(self.b1.id, [1, 2, 3, 4])
 
     def test_base_tup(self):
         """ Tuple case """
-        b9 = Base((1, 2))
-        self.assertEqual(b9.id, (1, 2))
+        self.b1 = Base((1, 2))
+        self.assertEqual(self.b1.id, (1, 2))
 
     def test_base_dir(self):
         """ Dictionary case """
-        b9 = Base({'A': 1, 'B': 2})
-        self.assertEqual(b9.id, {'A': 1, 'B': 2})
+        self.b1 = Base({'A': 1, 'B': 2})
+        self.assertEqual(self.b1.id, {'A': 1, 'B': 2})
 
 
 if __name__ == '__main__':
