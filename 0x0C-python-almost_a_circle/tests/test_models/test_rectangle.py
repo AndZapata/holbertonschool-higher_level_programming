@@ -2,6 +2,7 @@
 """ Module test rectangle """
 import unittest
 import pep8
+import sys
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -25,12 +26,12 @@ class TestRectangleWorking(unittest.TestCase):
 
     def tearDown(self):
         """ TearDown """
-        pass
+        Base.__nb_objects = 0
 
     def test_rec_id(self):
         """ Normal cases """
-        self.assertEqual(self.r1.id, 39)
-        self.assertEqual(self.r2.id, 40)
+        self.assertEqual(self.r1.id, 51)
+        self.assertEqual(self.r2.id, 52)
         self.assertEqual(self.r3.id, 12)
 
     def test_rec_width(self):
@@ -86,23 +87,53 @@ class TestRectangleWorking(unittest.TestCase):
         self.assertEqual(self.r2.y, 3)
         self.assertEqual(self.r2.width, 4)
 
-    def test_faults(self):
+    def test_fail_width_ty(self):
         with self.assertRaises(TypeError):
             self.r1.width = 'Hello'
             self.r2.width = ''
             self.r3.width = 2.5
+
+    def test_fail_height_ty(self):
+        with self.assertRaises(TypeError):
             self.r1.height = 'Hello'
             self.r2.height = ''
             self.r3.height = 'A'
 
-    def test_fail_value(self):
+    def test_fail_x_ty(self):
+        with self.assertRaises(TypeError):
+            self.r1.x = 'Hello'
+            self.r2.x = ''
+            self.r3.x = 'A'
+
+    def test_fail_y_ty(self):
+        with self.assertRaises(TypeError):
+            self.r1.y = 'Hello'
+            self.r2.y = ''
+            self.r3.y = 'A'
+
+    def test_fail_width_val(self):
         with self.assertRaises(ValueError):
             self.r1.width = -1
             self.r2.width = -2
             self.r3.width = -3
+
+    def test_fail_height_val(self):
+        with self.assertRaises(ValueError):
             self.r1.height = -4
             self.r2.height = -5
             self.r3.height = -6
+
+    def test_fail_x_val(self):
+        with self.assertRaises(ValueError):
+            self.r1.x = -4
+            self.r2.x = -5
+            self.r3.x = -6
+
+    def test_fail_y_val(self):
+        with self.assertRaises(ValueError):
+            self.r1.y = -4
+            self.r2.y = -5
+            self.r3.y = -6
 
 
 if __name__ == '__main__':

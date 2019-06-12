@@ -2,7 +2,10 @@
 """ Module test for base"""
 import unittest
 import pep8
+import sys
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestCodeFormat(unittest.TestCase):
@@ -17,7 +20,7 @@ class TestBaseWorking(unittest.TestCase):
     """ Class test for base """
 
     def setUp(self):
-        """ setUp """
+        """ set Up """
         self.b1 = Base()
         self.b2 = Base()
         self.b3 = Base()
@@ -25,16 +28,26 @@ class TestBaseWorking(unittest.TestCase):
         self.b5 = Base()
 
     def tearDown(self):
-        """ TearDown"""
-        pass
+        """ Tear Down"""
+        self.__nb_objects = None
 
-    def test_base_normal(self):
+    @classmethod
+    def setUpClass(self):
+        """ set Up """
+        print('SetUpClass')
+
+    @classmethod
+    def tearDownClass(self):
+        """ Tear down class """
+        print('tearDownClass')
+
+    def test_base_id(self):
         """ normal cases test """
-        self.assertEqual(self.b1.id, 17)
-        self.assertEqual(self.b2.id, 18)
-        self.assertEqual(self.b3.id, 19)
+        self.assertEqual(self.b1.id, 5)
+        self.assertEqual(self.b2.id, 6)
+        self.assertEqual(self.b3.id, 7)
         self.assertEqual(self.b4.id, 12)
-        self.assertEqual(self.b5.id, 20)
+        self.assertEqual(self.b5.id, 8)
 
     def test_base_zero(self):
         """ zero case """
