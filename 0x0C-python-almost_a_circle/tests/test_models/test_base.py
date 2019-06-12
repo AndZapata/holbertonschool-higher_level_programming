@@ -47,12 +47,12 @@ class TestBaseWorking(unittest.TestCase):
         self.__nb_objects = None
 
     @classmethod
-    def setUpClass(self):
+    def setUpClass(cls):
         """ set Up """
         pass
 
     @classmethod
-    def tearDownClass(self):
+    def tearDownClass(cls):
         """ Tear down class """
         pass
 
