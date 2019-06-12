@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ Module test for base"""
 import unittest
 import pep8
@@ -8,13 +7,29 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
+def setUpModule():
+    """ set Up """
+    pass
+
+
+def tearDownModule():
+    """ Tear Down"""
+    pass
+
+
 class TestCodeFormat(unittest.TestCase):
     """ class test for pep8 """
 
     def test_pep8_conformance(self):
         """ test pep8 """
-        fchecker = pep8.Checker("models/base.py", show_source=True)
+        stl = pep8.StyleGuide(quiet=True)
+        f1 = "models/base.py"
+        f2 = "tests/test_models/test_base.py"
+        fchecker = pep8.Checker(f1, show_source=True)
+        f2check = pep8.Checker(f2, show_source=True)
         file_errors = fchecker.check_all()
+        file_errors_2 = f2check.check_all()
+
 
 class TestBaseWorking(unittest.TestCase):
     """ Class test for base """
@@ -34,12 +49,12 @@ class TestBaseWorking(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         """ set Up """
-        print('SetUpClass')
+        pass
 
     @classmethod
     def tearDownClass(self):
         """ Tear down class """
-        print('tearDownClass')
+        pass
 
     def test_base_id(self):
         """ normal cases test """
@@ -83,7 +98,6 @@ class TestBaseWorking(unittest.TestCase):
         """ Dictionary case """
         self.b1 = Base({'A': 1, 'B': 2})
         self.assertEqual(self.b1.id, {'A': 1, 'B': 2})
-
 
 if __name__ == '__main__':
     unittest.main()

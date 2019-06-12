@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ Module test rectangle """
 import unittest
 import pep8
@@ -8,12 +7,18 @@ from models.square import Square
 
 
 class TestCodeFormat(unittest.TestCase):
-    """ Class test for pep8 rectangle """
+    """ class test for pep8 """
 
     def test_pep8_conformance(self):
         """ test pep8 """
-        fchecker = pep8.Checker("models/square.py", show_source=True)
+        stl = pep8.StyleGuide(quiet=True)
+        f1 = "models/square.py"
+        f2 = "tests/test_models/test_square.py"
+        fchecker = pep8.Checker(f1, show_source=True)
+        f2check = pep8.Checker(f2, show_source=True)
         file_errors = fchecker.check_all()
+        file_errors_2 = f2check.check_all()
+
 
 class TestSquareWorking(unittest.TestCase):
     """ class test rectangle """
@@ -61,7 +66,3 @@ class TestSquareWorking(unittest.TestCase):
         self.assertEqual(self.s1.area(), 4)
         self.s1.size = 8
         self.assertEqual(self.s1.area(), 64)
-
-
-if __name__ == '__main__':
-    unittest.main()

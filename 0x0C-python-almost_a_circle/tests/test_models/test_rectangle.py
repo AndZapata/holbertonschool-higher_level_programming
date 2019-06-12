@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ Module test rectangle """
 import unittest
 import pep8
@@ -8,12 +7,18 @@ from models.rectangle import Rectangle
 
 
 class TestCodeFormat(unittest.TestCase):
-    """ Class test for pep8 rectangle """
+    """ class test for pep8 """
 
     def test_pep8_conformance(self):
         """ test pep8 """
-        fchecker = pep8.Checker("models/rectangle.py", show_source=True)
+        stl = pep8.StyleGuide(quiet=True)
+        f1 = "models/rectangle.py"
+        f2 = "tests/test_models/test_rectangle.py"
+        fchecker = pep8.Checker(f1, show_source=True)
+        f2check = pep8.Checker(f2, show_source=True)
         file_errors = fchecker.check_all()
+        file_errors_2 = f2check.check_all()
+
 
 class TestRectangleWorking(unittest.TestCase):
     """ class test rectangle """
@@ -134,7 +139,3 @@ class TestRectangleWorking(unittest.TestCase):
             self.r1.y = -4
             self.r2.y = -5
             self.r3.y = -6
-
-
-if __name__ == '__main__':
-    unittest.main()
