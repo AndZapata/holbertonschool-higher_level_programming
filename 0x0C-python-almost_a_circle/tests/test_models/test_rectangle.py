@@ -29,8 +29,8 @@ class TestRectangleWorking(unittest.TestCase):
 
     def test_rec_id(self):
         """ Normal cases """
-        self.assertEqual(self.r1.id, 43)
-        self.assertEqual(self.r2.id, 44)
+        self.assertEqual(self.r1.id, 39)
+        self.assertEqual(self.r2.id, 40)
         self.assertEqual(self.r3.id, 12)
 
     def test_rec_width(self):

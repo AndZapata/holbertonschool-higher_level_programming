@@ -30,8 +30,8 @@ class TestSquareWorking(unittest.TestCase):
 
     def test_squ_normal(self):
         """ Normal cases """
-        self.assertEqual(self.s1.id, 61)
-        self.assertEqual(self.s2.id, 62)
+        self.assertEqual(self.s1.id, 57)
+        self.assertEqual(self.s2.id, 58)
         self.assertEqual(self.s3.id, 12)
         self.assertEqual(self.s1.size, 10)
         self.assertEqual(self.s2.size, 2)

@@ -30,11 +30,11 @@ class TestBaseWorking(unittest.TestCase):
 
     def test_base_normal(self):
         """ normal cases test """
-        self.assertEqual(self.b1.id, 21)
-        self.assertEqual(self.b2.id, 22)
-        self.assertEqual(self.b3.id, 23)
+        self.assertEqual(self.b1.id, 17)
+        self.assertEqual(self.b2.id, 18)
+        self.assertEqual(self.b3.id, 19)
         self.assertEqual(self.b4.id, 12)
-        self.assertEqual(self.b5.id, 24)
+        self.assertEqual(self.b5.id, 20)
 
     def test_base_zero(self):
         """ zero case """
