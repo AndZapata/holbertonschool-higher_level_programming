@@ -6,6 +6,16 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
+def setUpModule():
+    """ set Up """
+    pass
+
+
+def tearDownModule():
+    """ Tear Down"""
+    pass
+
+
 class TestCodeFormat(unittest.TestCase):
     """ class test for pep8 """
 
@@ -31,6 +41,16 @@ class TestSquareWorking(unittest.TestCase):
 
     def tearDown(self):
         """ TearDown """
+        pass
+
+    @classmethod
+    def setUpClass(cls):
+        """ set Up """
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        """ Tear down class """
         pass
 
     def test_squ_normal(self):

@@ -6,6 +6,16 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
+def setUpModule():
+    """ set Up """
+    pass
+
+
+def tearDownModule():
+    """ Tear Down"""
+    pass
+
+
 class TestCodeFormat(unittest.TestCase):
     """ class test for pep8 """
 
@@ -31,7 +41,17 @@ class TestRectangleWorking(unittest.TestCase):
 
     def tearDown(self):
         """ TearDown """
-        Base.__nb_objects = 0
+        Base.__nb_objects = None
+
+    @classmethod
+    def setUpClass(cls):
+        """ set Up """
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        """ Tear down class """
+        pass
 
     def test_rec_id(self):
         """ Normal cases """
