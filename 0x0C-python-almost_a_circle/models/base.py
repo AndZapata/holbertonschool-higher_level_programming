@@ -2,6 +2,8 @@
 """ Module base.py """
 import json
 import csv
+import turtle
+import random
 
 
 class Base():
@@ -86,3 +88,48 @@ class Base():
                     row[key] = int(value)
                 list_ob_csv.append(cls.create(**row))
         return list_ob_csv
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Function to draw a rectangle or square with turtle"""
+        Screen_T = turtle.Screen()
+        Tony = turtle.Turtle()
+
+        Tony.width(10)
+        for i in list_rectangles:
+            R = random.random()
+            G = random.random()
+            B = random.random()
+            Tony.color(R, G, B)
+            Tony.begin_fill()
+            Tony.goto(i.x, i.y)
+            Tony.pendown()
+            Tony.forward(i.width)
+            Tony.right(90)
+            Tony.forward(i.height)
+            Tony.right(90)
+            Tony.forward(i.width)
+            Tony.right(90)
+            Tony.forward(i.height)
+            Tony.penup()
+            Tony.end_fill()
+
+        for i in list_squares:
+            R = random.random()
+            G = random.random()
+            B = random.random()
+            Tony.color(R, G, B)
+            Tony.begin_fill()
+            Tony.goto(i.x, i.y)
+            Tony.pendown()
+            Tony.forward(i.size)
+            Tony.right(90)
+            Tony.forward(i.size)
+            Tony.right(90)
+            Tony.forward(i.size)
+            Tony.right(90)
+            Tony.forward(i.size)
+            Tony.penup()
+            Tony.end_fill()
+
+        Screen_T.exitonclick()
