@@ -1,0 +1,3 @@
+-- comentario
+-- comentario
+SHOW TABLES;
