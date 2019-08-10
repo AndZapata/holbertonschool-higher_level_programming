@@ -13,7 +13,7 @@ if __name__ == '__main__':
     cur = co_db.cursor()
 
     cur.execute("SELECT id, name FROM states \
-    WHERE name LIKE \"N%\" ORDER BY id ASC;")
+    WHERE name LIKE BINARY 'N%' ORDER BY id ASC;")
     for string in cur:
         print("{}".format(string))
     cur.close()
