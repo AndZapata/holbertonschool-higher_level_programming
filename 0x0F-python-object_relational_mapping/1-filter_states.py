@@ -12,8 +12,8 @@ if __name__ == '__main__':
         db=argv[3])
     cur = co_db.cursor()
 
-    string = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
-    cur.execute(string)
+    cur.execute("SELECT id, name FROM states \
+    WHERE name LIKE 'N%' ORDER BY id ASC;")
     for string in cur:
-        print(string)
+        print("{}".format(string))
     cur.close()
