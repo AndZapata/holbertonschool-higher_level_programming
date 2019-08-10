@@ -13,7 +13,7 @@ if __name__ == '__main__':
     cur = co_db.cursor()
 
     string = "SELECT id, name FROM states \
-    WHERE name like '{}' ORDER BY id ASC".format(argv[4])
+    WHERE name LIKE BINARY '{}' ORDER BY id ASC".format(argv[4])
     cur.execute(string)
     for string in cur:
         print(string)
