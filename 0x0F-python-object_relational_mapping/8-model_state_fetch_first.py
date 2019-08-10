@@ -21,4 +21,3 @@ if __name__ == "__main__":
     else:
         print("Nothing")
     sess.close()
-B
