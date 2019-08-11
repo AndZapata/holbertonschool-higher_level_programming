@@ -15,8 +15,8 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     s = Session()
-    q = s.query(State).filter_by(name =
-        argv[4]).order_by(asc(State.id)).one_or_none()
+    q = s.query(State).filter_by(name=argv[4]).order_by(
+        asc(State.id)).one_or_none()
     if q:
         print("{:d}".format(q.id))
     else:
