@@ -4,7 +4,8 @@ if __name__ == "__main__":
     from urllib.request import Request, urlopen
     from urllib.error import HTTPError
     from sys import argv
-    req = Request(argv[1])
+    url = argv[1]
+    req = Request(url)
     try:
         with urlopen(req) as response:
             html = response.read()
