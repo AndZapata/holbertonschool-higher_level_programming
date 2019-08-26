@@ -7,4 +7,4 @@ if __name__ == "__main__":
     from sys import argv
     url = argv[1]
     html = requests.get(url)
-    print('{}'.format(html.headers['X-Request-Id']))
+    print('{}'.format(html.headers.get('X-Request-Id')))
