@@ -7,7 +7,7 @@ if __name__ == "__main__":
     from urllib import request, parse
     from sys import argv
     url = argv[1]
-    value = {'email' : argv[2]}
+    value = {'email': argv[2]}
     data = parse.urlencode(value)
     data = data.encode('utf-8')
     req = request.Request(url, data)
