@@ -13,3 +13,7 @@ if __name__ == "__main__":
     print("Number of results: {}".format(counter))
     for answer in in_file.get('results'):
         print(answer.get('name'))
+    while in_file.get('next'):
+        in_file = requests.get(in_file.get('next')).json()
+        for answer in in_file.get('results'):
+            print(answer.get('name'))
