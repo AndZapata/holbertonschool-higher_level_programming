@@ -3,7 +3,7 @@ const Squ = require('./5-square');
 
 class Square extends Squ {
   charPrint (c) {
-    if (c == undefined) {
+    if (c == null) {
       c = 'X';
     }
     for (let i = 0; i < this.width; i++) {
