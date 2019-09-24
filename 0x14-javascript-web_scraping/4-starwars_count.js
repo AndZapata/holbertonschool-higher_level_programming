@@ -6,10 +6,17 @@ request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
-      BigList = JSON.parse(body).results;
-      for (let i in BigList) {
-	  let dict = BigList[i].characters;
+    let counter = 0;
+    let list = [];
+    const BigList = JSON.parse(body).results;
+    for (const i of BigList) {
+      list = i.characters;
+      for (const j of list) {
+        if (j.includes('18')) {
+          counter++;
+        }
       }
-      console.log(dict)
+    }
+    console.log(counter);
   }
 });
